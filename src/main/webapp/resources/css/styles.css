@@ -1,0 +1,28 @@
+.tabela {
+    border: thin solid black;
+    width: 100%;
+}
+.tabelaHeader {
+    text-align: center;
+    font-style: italic;
+    color: Snow;
+    background: Teal;
+}
+.tabelaCaption {
+    text-align: center;
+    font-style: italic;
+    color: Snow;
+    background: Teal;
+}
+.linhaPar {
+    text-align: left;
+    background: MediumTurquoise;
+}
+.linhaImpar {
+    text-align: left;
+    background: PowderBlue;
+}
+.erro {
+	font-style: italic;
+	color: red;
+}

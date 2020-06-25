@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Categorias</title>
+	<h:outputStylesheet library="css" name="styles.css"/>
+</h:head>
+<h:body>
+	<h1>Categorias</h1>
+	<h:form id="frm">
+		<h:inputText value="#{categoriaBean.consulta}"/> 
+		<h:commandButton value="Consultar"
+			action="#{categoriaBean.consultar}" />
+		<h:dataTable value="#{categoriaBean.categorias}" var="c"
+			styleClass="tabela" captionClass="tabelaCaption"
+			headerClass="tabelaHeader" rowClasses="linhaPar, linhaImpar">
+			<h:column>
+				<f:facet name="header">Id</f:facet>
+				<h:outputText value="#{c.id}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">Categoria</f:facet>
+				<h:outputText value="#{c.nome}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">Editar</f:facet>
+				<h:commandButton value="Editar" action="#{categoriaBean.pagCategoria(c)}"/>
+			</h:column>
+			<h:column>
+				<f:facet name="header">Excluir</f:facet>
+				<h:commandButton value="Excluir" onclick="return confirm('Confirma a exclusão');" action="#{categoriaBean.excluir(c)}"/>
+			</h:column>
+			
+		</h:dataTable>
+		<h:commandButton value="Nova categoria" action="#{categoriaBean.pagCategoria}"/>
+		<h:commandButton value="Sair" action="#{usuarioBean.logout}" />
+		<h:messages styleClass="erro"/>
+	</h:form>
+</h:body>
+</html>
